@@ -42,7 +42,7 @@ float get_user_input_change_owed() {
 int main() {
 	float quarter		=	0.25;	//.25
 	float dime			= 0.10;	//.10
-	float nickel		= 0.50;	//.05
+	float nickel		= 0.05;	//.05
 	float penny			= 0.01;	//.01
 
 	float owed = get_user_input_change_owed();
