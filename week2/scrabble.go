@@ -10,6 +10,7 @@ var PM = make(map[rune]int)
 
 func main() {
 	//set up the map for scoring letters
+	PM['A'] = 1
 	PM['B'] = 3
 	PM['C'] = 3
 	PM['D'] = 2
