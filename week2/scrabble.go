@@ -40,7 +40,7 @@ func main() {
 	//prompt players for input
 	fmt.Printf("Player 1: ")
 	word1 := get_user_input()
-	fmt.Printf("Player 1: ")
+	fmt.Printf("Player 2: ")
 	word2 := get_user_input()
 	fmt.Println("")
 
