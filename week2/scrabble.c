@@ -35,7 +35,7 @@ int compute_score(string word) {
 	for (int a = 0; a < strlen(word); a++) {
 		letterPosition = ((int)(wordUpper[a])) -65;
 
-		//debug 	
+		//debug info
 		printf("%c(%d)+ ", wordUpper[a], POINTS[letterPosition]);
 		//printf("character: %c\nletter: %d\n", wordUpper[a], letterPosition);
 		score += POINTS[letterPosition];
@@ -44,10 +44,22 @@ int compute_score(string word) {
 	return score;
 }
 
+string get_player_input(string message){
+	string input = get_string(message);
+
+	//clean the input by replacing illegal characters with spaces, they will later be scored as +0 and won't affect the score.
+	for (int i = 0; i<strlen(input); i++) {
+		if (input[i] < 65 || (input[i] > 90 && input[i] < 97) || input[i] > 122) {
+			input[i] = ' ';
+		}
+	}
+	return input;
+}
+
 int main(void) {
     //Get input words from both players
-		string word1 = get_string("Player 1: ");
-		string word2 = get_string("Player 2: ");
+		string word1 = get_player_input("Player 1: ");
+		string word2 = get_player_input("Player 2: ");
 
     //Score both words
     int score1 = compute_score(word1);
