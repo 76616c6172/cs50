@@ -44,7 +44,7 @@ int main(int arc, char *argv[]){
 		return 1;
 	}
 	//check to only allowe 26 char keys
-	if (strlen(key) <25 || strlen(key) > 26) {
+	if (!(strlen(key)) == 26) {
 		printf("Error: Key must contain 26 characters.\n");
 		return 1;
 	}
