@@ -74,7 +74,7 @@ sort2 0.1  ---- sort2 0.1 ------ sort2 0.1
 sort1 13.7 ---- sort1 0.6 ------ sort1 0.0
 ```
 
-# sort 1 uses:  SELECTION SORT
+# sort1 uses:  SELECTION SORT
 How do you know?:  
 It took an extreme amount of time to sort the random data set compared to the other two it's really an outlier.
 
