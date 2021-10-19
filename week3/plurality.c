@@ -6,6 +6,8 @@
 #define MAX 9
 
 // Candidates have name and vote count
+// accessible by candidate[1].name
+// and candidate[1].votes
 typedef struct {
     string name;
     int votes;
@@ -61,32 +63,58 @@ int main(int argc, string argv[]) {
 // Update vote totals given a new vote
 bool vote(string name) {
 
+    // loop through all candidates
     for (int i = 0; i < candidate_count; i++) {
+        // if name matches a candidate, return true
+        // and update that candidates vote count
         if ((strcmp(name, candidates[i].name)) == 0) {
             candidates[i].votes++;
             return true; 
         }
     }
+    // otherwise, do nothing and return false
     return false;
 }
 
 // Print the winner (or winners) of the election
 void print_winner(void) {
 
+    int winner_array_position = 0;
     int highest_vote_count = 0;
+    bool is_tie = false;
 
-    // Determine what the highest vote_count among the candidates is
+    // Determine the winner, save their votecount
+    // and their position in the candidates[] array
+    // if there is a tie, whoever is last in the array will be saved
     for (int i = 0; i < candidate_count; i++) {
         if (candidates[i].votes > highest_vote_count) {
             highest_vote_count = candidates[i].votes;
+            winner_array_position = i;
         }
     }
 
-    // Print out the candidate(s) with the highest vote count
+/*
+===========================================================
+DAMN THERE IS A PROBLEM WITH THE IF STATEMENT IN THIS LOOP
+====
+*/
     for (int i = 0; i < candidate_count; i++) {
-        if (candidates[i].votes == highest_vote_count) {
-            printf("%s\n", candidates[i].name);
+        //check for tie
+        if ( ( candidate[i].votes == highest_vote_count ) && ( i != winner_array_position ) ) {
+            is_tie = true;
+            //we have a tie so print out everyone who is tied for the win
+            printf("TIE: %s with %d votes!\n", candidates[i].name, candidates[i].votes);
         }
     }
+
+    if ( is_tie == false) {
+        // If there is no tie, print out the winner
+        printf("%s is the winner with %d votes!\n", candidates[winner_array_position].name, candidates[winner_array_position].votes);
+        return;
+    }else{
+        // Since there is a tie we still have to print out the saved "winner" in the last position of the array.
+        printf("TIE: %s with %d votes!\n", candidates[winner_array_position].name, candidates[winner_array_position].votes);
+    }
+
     return;
 }
