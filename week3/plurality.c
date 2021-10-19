@@ -93,11 +93,6 @@ void print_winner(void) {
         }
     }
 
-/*
-===========================================================
-DAMN THERE IS A PROBLEM WITH THE IF STATEMENT IN THIS LOOP
-====
-*/
     for (int i = 0; i < candidate_count; i++) {
         //check for tie
         if ( ( candidates[i].votes == highest_vote_count ) && ( i != winner_array_position ) ) {
