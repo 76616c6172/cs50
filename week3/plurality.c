@@ -6,8 +6,8 @@
 #define MAX 9
 
 // Candidates have name and vote count
-// accessible by candidate[1].name
-// and candidate[1].votes
+// accessible by candidate.name
+// and candidate.votes
 typedef struct {
     string name;
     int votes;
