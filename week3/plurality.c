@@ -100,7 +100,7 @@ DAMN THERE IS A PROBLEM WITH THE IF STATEMENT IN THIS LOOP
 */
     for (int i = 0; i < candidate_count; i++) {
         //check for tie
-        if ( ( candidate[i].votes == highest_vote_count ) && ( i != winner_array_position ) ) {
+        if ( ( candidates[i].votes == highest_vote_count ) && ( i != winner_array_position ) ) {
             is_tie = true;
             //we have a tie so print out everyone who is tied for the win
             printf("TIE: %s with %d votes!\n", candidates[i].name, candidates[i].votes);
